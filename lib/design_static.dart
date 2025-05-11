@@ -108,13 +108,13 @@ class Design extends StatelessWidget {
                   SystemNavigator.pop();
                 },
               ),
-              ListTile(
+              /*ListTile(
                 leading: const Icon(Icons.settings_applications, color: drawerTextColor),
                 title: const Text('Teste', style: TextStyle(color: drawerTextColor)),
                 onTap: () {
                   Navigator.pushNamed(context, '/test');
                 },
-              ),
+              ), */
             ],
           ),
         ),

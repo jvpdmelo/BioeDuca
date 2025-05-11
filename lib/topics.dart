@@ -14,27 +14,27 @@ class _TopicsState extends State<Topics> {
   final List<Map<String, String>> topics = [
     {
       'title': 'Agenda 2030',
-      'description': 'Plano global da ONU...',
+      'description': 'Plano global da ONU com 17 metas que visam promover um mundo mais justo, sustentável e inclusivo até 2030.',
       'image': 'assets/images/agenda2030.jpeg',
     },
     {
       'title': 'Compromisso Socioambiental',
-      'description': 'Responsabilidade de cidadãos...',
+      'description': 'É a responsabilidade de cidadãos e empresas em adotar práticas sustentáveis, preservando a natureza e promovendo o bem-estar coletivo.',
       'image': 'assets/images/compromissosocioambiental.jpeg',
     },
     {
       'title': 'Desafios e Perspectivas',
-      'description': 'Principais desafios...',
+      'description': 'Os principais desafios incluem desinformação e falta de ação; as perspectivas apontam para a formação de cidadãos críticos e engajados em soluções ambientais reais.',
       'image': 'assets/images/desafiosperspectivas.jpeg',
     },
     {
       'title': 'Educação Ambiental',
-      'description': 'Busca criar consciência ambiental...',
+      'description': 'A Educação Ambiental busca criar uma sociedade mais consciente sobre as questões ambientais.',
       'image': 'assets/images/educacaoambiental.jpeg',
     },
     {
       'title': 'Sustentabilidade',
-      'description': 'Uso responsável dos recursos...',
+      'description': 'Sustentabilidade é o uso responsável dos recursos naturais, visando o bem-estar das futuras gerações.',
       'image': 'assets/images/sustentabilidade.jpeg',
     },
   ];

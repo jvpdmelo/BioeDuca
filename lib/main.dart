@@ -1,5 +1,5 @@
 import 'package:bioeduca/about.dart';
-import 'package:bioeduca/test.dart';
+//import 'package:bioeduca/test.dart';
 import 'package:bioeduca/topics.dart';
 import 'package:flutter/material.dart';
 import 'home_page.dart';
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const Home(),
         '/topics': (context) => const Topics(),
         '/about': (context) => const About(),
-        '/test': (context) => const Test(),
+        //'/test': (context) => const Test(),
       },
     );
   }
