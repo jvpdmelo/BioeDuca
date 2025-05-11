@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bioeduca/topic_detail.dart';
 import 'package:bioeduca/topics_texts.dart';
-import 'package:bioeduca/design_static.dart'; // Importa o Design
+import 'package:bioeduca/design_static.dart';
 
 class Topics extends StatefulWidget {
   const Topics({super.key});
@@ -13,29 +13,29 @@ class Topics extends StatefulWidget {
 class _TopicsState extends State<Topics> {
   final List<Map<String, String>> topics = [
     {
+      'title': 'Agenda 2030',
+      'description': 'Plano global da ONU...',
+      'image': 'assets/images/agenda2030.jpeg',
+    },
+    {
+      'title': 'Compromisso Socioambiental',
+      'description': 'Responsabilidade de cidadãos...',
+      'image': 'assets/images/compromissosocioambiental.jpeg',
+    },
+    {
+      'title': 'Desafios e Perspectivas',
+      'description': 'Principais desafios...',
+      'image': 'assets/images/desafiosperspectivas.jpeg',
+    },
+    {
       'title': 'Educação Ambiental',
-      'description': 'A Educação Ambiental busca criar uma sociedade mais consciente sobre as questões ambientais.',
+      'description': 'Busca criar consciência ambiental...',
       'image': 'assets/images/educacaoambiental.jpeg',
     },
     {
       'title': 'Sustentabilidade',
-      'description': 'Sustentabilidade é o uso responsável dos recursos naturais, visando o bem-estar das futuras gerações.',
-      'image': 'assets/images/anime.png',
-    },
-    {
-      'title': 'Compromisso Socioambiental',
-      'description': 'É a responsabilidade de cidadãos e empresas em adotar práticas sustentáveis, preservando a natureza e promovendo o bem-estar coletivo.',
-      'image': 'assets/images/anime.png',
-    },
-    {
-      'title': 'Agenda 2030',
-      'description': 'Plano global da ONU com 17 metas que visam promover um mundo mais justo, sustentável e inclusivo até 2030.',
-      'image': 'assets/images/anime.png',
-    },
-    {
-      'title': 'Desafios e Perspectivas',
-      'description': 'Os principais desafios incluem desinformação e falta de ação; as perspectivas apontam para a formação de cidadãos críticos e engajados em soluções ambientais reais.',
-      'image': 'assets/images/anime.png',
+      'description': 'Uso responsável dos recursos...',
+      'image': 'assets/images/sustentabilidade.jpeg',
     },
   ];
 
@@ -52,8 +52,7 @@ class _TopicsState extends State<Topics> {
     setState(() {
       filteredTopics = topics
           .where((topic) =>
-      topic['title']!.toLowerCase().contains(query.toLowerCase()) ||
-          topic['description']!.toLowerCase().contains(query.toLowerCase()))
+          topic['title']!.toLowerCase().contains(query.toLowerCase()))
           .toList();
     });
   }
@@ -61,6 +60,7 @@ class _TopicsState extends State<Topics> {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
+    final String query = _controller.text.toLowerCase();
 
     return Design(
       title: 'TÓPICOS',
@@ -82,8 +82,12 @@ class _TopicsState extends State<Topics> {
                 ),
               ),
             ),
-            ...List.generate(filteredTopics.length, (index) {
-              final topic = filteredTopics[index];
+            ...filteredTopics.map((topic) {
+              final title = topic['title']!;
+              final lowerTitle = title.toLowerCase();
+              final startIndex = lowerTitle.indexOf(query);
+              final endIndex = startIndex + query.length;
+
               return Padding(
                 padding: const EdgeInsets.only(bottom: 20),
                 child: GestureDetector(
@@ -125,8 +129,41 @@ class _TopicsState extends State<Topics> {
                           ),
                           Padding(
                             padding: const EdgeInsets.all(12.0),
-                            child: Text(
-                              topic['title']!,
+                            child: startIndex >= 0
+                                ? Text.rich(
+                              TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: title.substring(0, startIndex),
+                                    style: const TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xFF333333),
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: title.substring(
+                                        startIndex, endIndex),
+                                    style: const TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      backgroundColor: Colors.yellow,
+                                      color: Color(0xFF333333),
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: title.substring(endIndex),
+                                    style: const TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xFF333333),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )
+                                : Text(
+                              title,
                               style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
@@ -140,7 +177,7 @@ class _TopicsState extends State<Topics> {
                   ),
                 ),
               );
-            }),
+            }).toList(),
           ],
         ),
       ),

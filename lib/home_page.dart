@@ -7,62 +7,132 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const Color containerColor = Color(0xFFA5D6A7);
-    const Color backgroundColor = Color(0xFFF1F8E9);
     const Color textColor = Color(0xFF333333);
+
     return Design(
       title: 'INÍCIO',
-      content: SingleChildScrollView(
-        padding: const EdgeInsets.all(20),
-        child: Center(
-          child: Container(
-            padding: const EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              color: containerColor,
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: Colors.black, width: 2),
-            ),
-            child: Align(
-              alignment: Alignment.topCenter,
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(minHeight: 600),
-                child: Container(
-                  width: 1500,
-                  padding: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                    color: backgroundColor,
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: Colors.brown, width: 1),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-
-                      // TEXTO
-                      const Text(
-                        'Aqui está o conteúdo. '
-                            'Se esse texto for maior do que o espaço mínimo (600 de altura), '
-                            '\no container vai se expandir automaticamente.',
-                        style: TextStyle(fontSize: 18, color: textColor),
-                        textAlign: TextAlign.justify,
+      content: LayoutBuilder(
+        builder: (context, constraints) {
+          return Container(
+            color: Colors.white,
+            child: Column(
+              children: [
+                const SizedBox(height: 20),
+                Expanded(
+                  child: Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(24),
+                    decoration: const BoxDecoration(
+                      color: containerColor,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
                       ),
-
-                      // IMAGEM
-                      Align(
-                        alignment: Alignment.bottomRight,
-                        child: Image.asset(
-                          'assets/images/anime.png',
-                          width: 200,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center, // Centraliza verticalmente
+                      children: [
+                        // Imagem a Esquerda
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [ //Texto a Esquerda
+                            Container(
+                              width: 115,
+                              height: 115,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white,
+                                border: Border.all(color: Colors.white, width: 3),
+                                image: const DecorationImage(
+                                  image: AssetImage('assets/images/Bio.png'),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 16),
+                            Expanded(
+                              child: Container(
+                                padding: const EdgeInsets.all(16),
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFFFFFFF),
+                                  borderRadius: const BorderRadius.only(
+                                    topLeft: Radius.circular(16),
+                                    topRight: Radius.circular(16),
+                                    bottomRight: Radius.circular(16),
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.05),
+                                      blurRadius: 6,
+                                      offset: const Offset(0, 4),
+                                    ),
+                                  ],
+                                ),
+                                child: const Text(
+                                  'Olá, eu me chamo Bio! Este aplicativo vai te ajudar a entender a importância do meio ambiente e sobre conceitos importantes.',
+                                  style: TextStyle(fontSize: 19, height: 1.5, color: textColor),
+                                  textAlign: TextAlign.justify,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                      const SizedBox(height: 20),
 
-                    ],
+                        const SizedBox(height: 40),
+
+                        // Imagem e Texto a Direita
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [ //Texto a Direita
+                            Expanded(
+                              child: Container(
+                                padding: const EdgeInsets.all(16),
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFFFFFFF),
+                                  borderRadius: const BorderRadius.only(
+                                    topLeft: Radius.circular(16),
+                                    topRight: Radius.circular(16),
+                                    bottomLeft: Radius.circular(16),
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.05),
+                                      blurRadius: 6,
+                                      offset: const Offset(0, 4),
+                                    ),
+                                  ],
+                                ),
+                                child: const Text(
+                                  'Oi, eu sou a Duca! Vamos juntos aprender mais sobre como cuidar do nosso planeta e transforma-lo em um lugar melhor!',
+                                  style: TextStyle(fontSize: 19, height: 1.5, color: textColor),
+                                  textAlign: TextAlign.justify,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 16),
+                            Container( //Imagem a Direita
+                              width: 115,
+                              height: 115,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white,
+                                border: Border.all(color: Colors.white, width: 3),
+                                image: const DecorationImage(
+                                  image: AssetImage('assets/images/Duca.png'),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
-          ),
-        ),
+          );
+        },
       ),
     );
   }

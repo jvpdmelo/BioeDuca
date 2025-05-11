@@ -31,16 +31,61 @@ class TopicDetail extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Image.asset(
-                image,
-                width: double.infinity,
-                height: 250,
-                fit: BoxFit.cover,
-              ),
+            Stack(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Image.asset(
+                    image,
+                    width: double.infinity,
+                    height: 250,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Positioned(
+                  top: 10,
+                  right: 10,
+                  child: IconButton(
+                    icon: const Icon(Icons.fullscreen, color: Colors.white, size: 30),
+                    tooltip: 'Ampliar imagem',
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) => Dialog(
+                          backgroundColor: Colors.transparent,
+                          child: GestureDetector(
+                            onTap: () => Navigator.pop(context),
+                            child: InteractiveViewer(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(16),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.4),
+                                      blurRadius: 10,
+                                    ),
+                                  ],
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(16),
+                                  child: Image.asset(
+                                    image,
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 20),
+
+            // Descrição
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
               margin: const EdgeInsets.only(bottom: 20),
@@ -73,6 +118,8 @@ class TopicDetail extends StatelessWidget {
                 ],
               ),
             ),
+
+            // Balões de texto
             ...List.generate(contentParts.length, (index) {
               final isLeft = index % 2 == 0;
               final Color balloonColor = isLeft
@@ -106,10 +153,18 @@ class TopicDetail extends StatelessWidget {
                       if (isLeft)
                         Padding(
                           padding: const EdgeInsets.only(right: 8),
-                          child: Image.asset(
-                            'assets/images/anime.png',
+                          child: Container(
                             width: 100,
                             height: 100,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.white,
+                              border: Border.all(color: Colors.white, width: 3),
+                              image: const DecorationImage(
+                                image: AssetImage('assets/images/Bio.png'),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
                           ),
                         ),
                       Flexible(
@@ -122,10 +177,18 @@ class TopicDetail extends StatelessWidget {
                       if (!isLeft)
                         Padding(
                           padding: const EdgeInsets.only(left: 8),
-                          child: Image.asset(
-                            'assets/images/anime.png',
+                          child: Container(
                             width: 100,
                             height: 100,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.white,
+                              border: Border.all(color: Colors.white, width: 3),
+                              image: const DecorationImage(
+                                image: AssetImage('assets/images/Duca.png'),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
                           ),
                         ),
                     ],

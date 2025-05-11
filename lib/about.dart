@@ -6,13 +6,188 @@ class About extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const Color backgroundColor = Color(0xFFA5D6A7); //Fundo verde
+    const Color highlightColor = Color(0xFF2E7D32); //Verde forte para destaque
+    const Color textColor = Colors.white; //Texto menor em branco
+    const Color titleColor = Color(0xFF1B5E20); //Verde mais escuro para títulos
+
     return Design(
-      title: 'SOBRE',
-      content: const Center(
-        child: Text(
-          'Conteúdo SOBRE',
-          style: TextStyle(fontSize: 24),
-        ),
+      title: 'CRÉDITOS',
+      content: Column(
+        children: [
+          const SizedBox(height: 20), // Espaço entre AppBar e container
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.all(20),
+              color: backgroundColor,
+              width: double.infinity,
+              child: SingleChildScrollView(
+                child: Center(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+
+                      // Disciplina
+                      RichText(
+                        textAlign: TextAlign.center,
+                        text: const TextSpan(
+                          children: [
+                            TextSpan(
+                              text: 'Nome da Disciplina:',
+                              style: TextStyle(
+                                color: titleColor,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 24,
+                              ),
+                            ),
+                            TextSpan(
+                              text: '\nDesenvolvimento de Software\n',
+                              style: TextStyle(
+                                color: textColor,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      // Professor Responsável
+                      const SizedBox(height: 10),
+                      RichText(
+                        textAlign: TextAlign.center,
+                        text: const TextSpan(
+                          children: [
+                            TextSpan(
+                              text: 'Nome do Professor Responsável:',
+                              style: TextStyle(
+                                color: titleColor,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 24,
+                              ),
+                            ),
+                            TextSpan(
+                              text: '\nProf.Dr.Elvio Gilberto da Silva\n',
+                              style: TextStyle(
+                                color: textColor,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      const SizedBox(height: 20), // separação
+
+                      // Professores Colaboradores
+                      RichText(
+                        textAlign: TextAlign.center,
+                        text: const TextSpan(
+                          children: [
+                            TextSpan(
+                              text: 'Nome e Titulação de Professores Colaboradores:',
+                              style: TextStyle(
+                                color: titleColor,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 24,
+                              ),
+                            ),
+                            TextSpan(
+                              text: '\nProfa.Dr.Eliane Aparecida Toledo Pinto\n',
+                              style: TextStyle(
+                                color: textColor,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      const SizedBox(height: 20), // separação
+
+                      // Desenvolvedores
+                      const Text(
+                        'Nomes Completos dos Integrantes e Colaboradores do Grupo:',
+                        style: TextStyle(
+                          color: titleColor,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 8),
+                      const Text(
+                        '• Heytor Vinicios Fonseca Palheta Ferreira;',
+                        style: TextStyle(fontSize: 20, color: textColor),
+                        textAlign: TextAlign.center,
+                      ),
+                      const Text(
+                        '• João Victor Pires de Melo;',
+                        style: TextStyle(fontSize: 20, color: textColor),
+                        textAlign: TextAlign.center,
+                      ),
+                      const Text(
+                        '• Nicolas Barbosa Freitas;',
+                        style: TextStyle(fontSize: 20, color: textColor),
+                        textAlign: TextAlign.center,
+                      ),
+                      const Text(
+                        '• Victor Lambertini da Costa.\n',
+                        style: TextStyle(fontSize: 20, color: textColor),
+                        textAlign: TextAlign.center,
+                      ),
+
+                      // IMAGENS FINAIS - CENTRALIZADAS
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          // Esquerda: Desenvolvimento
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              const Text(
+                                'Desenvolvimento:',
+                                style: TextStyle(
+                                  color: titleColor,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                ),
+                              ),
+                              const SizedBox(height: 8),
+                              Image.asset(
+                                'assets/images/anime.png',
+                                width: 130,
+                              ),
+                            ],
+                          ),
+                          const SizedBox(width: 40), // espaçamento entre as imagens
+                          // Direita: Apoio
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              const Text(
+                                'Apoio:',
+                                style: TextStyle(
+                                  color: titleColor,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                ),
+                              ),
+                              const SizedBox(height: 8),
+                              Image.asset(
+                                'assets/images/anime.png',
+                                width: 130,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
