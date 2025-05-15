@@ -19,7 +19,7 @@ class _TopicsState extends State<Topics> {
     },
     {
       'title': 'Compromisso Socioambiental',
-      'description': 'É a responsabilidade de cidadãos e empresas em adotar práticas sustentáveis, preservando a natureza e promovendo o bem-estar coletivo.',
+      'description': 'É responsabilidade de cidadãos e empresas em adotar práticas sustentáveis, preservando a natureza e promovendo o bem-estar coletivo.',
       'image': 'assets/images/compromissosocioambiental.jpeg',
     },
     {

@@ -69,7 +69,7 @@ class Home extends StatelessWidget {
                                   ],
                                 ),
                                 child: const Text(
-                                  'Olá, eu me chamo Bio! Este aplicativo vai te ajudar a entender a importância do meio ambiente e sobre conceitos importantes.',
+                                  'Olá, eu me chamo Bio! Este aplicativo vai te ajudar a entender a importância do meio ambiente e alguns conceitos importantes.',
                                   style: TextStyle(fontSize: 19, height: 1.5, color: textColor),
                                   textAlign: TextAlign.justify,
                                 ),
@@ -103,7 +103,7 @@ class Home extends StatelessWidget {
                                   ],
                                 ),
                                 child: const Text(
-                                  'Oi, eu sou a Duca! Vamos juntos aprender mais sobre como cuidar do nosso planeta e transforma-lo em um lugar melhor!',
+                                  'Oi, eu sou a Duca! Vamos juntos aprender mais sobre como cuidar do nosso planeta e transformá-lo em um lugar melhor!',
                                   style: TextStyle(fontSize: 19, height: 1.5, color: textColor),
                                   textAlign: TextAlign.justify,
                                 ),

@@ -58,7 +58,7 @@ class About extends StatelessWidget {
                         text: const TextSpan(
                           children: [
                             TextSpan(
-                              text: 'Nome do Professor Responsável:',
+                              text: 'Professor Responsável:',
                               style: TextStyle(
                                 color: titleColor,
                                 fontWeight: FontWeight.bold,
@@ -84,7 +84,7 @@ class About extends StatelessWidget {
                         text: const TextSpan(
                           children: [
                             TextSpan(
-                              text: 'Nome e Titulação de Professores Colaboradores:',
+                              text: 'Professora Colaboradora:',
                               style: TextStyle(
                                 color: titleColor,
                                 fontWeight: FontWeight.bold,
@@ -92,7 +92,7 @@ class About extends StatelessWidget {
                               ),
                             ),
                             TextSpan(
-                              text: '\nProfa.Dr.Eliane Aparecida Toledo Pinto\n',
+                              text: '\nProfa.Dra.Eliane Aparecida Toledo Pinto\n',
                               style: TextStyle(
                                 color: textColor,
                                 fontSize: 20,
@@ -106,7 +106,7 @@ class About extends StatelessWidget {
 
                       // Desenvolvedores
                       const Text(
-                        'Nomes Completos dos Integrantes e Colaboradores do Grupo:',
+                        'Integrantes do Grupo:',
                         style: TextStyle(
                           color: titleColor,
                           fontWeight: FontWeight.bold,
@@ -137,8 +137,8 @@ class About extends StatelessWidget {
                       ),
 
                       // IMAGENS FINAIS - CENTRALIZADAS
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           // Esquerda: Desenvolvimento
                           Column(
@@ -154,12 +154,12 @@ class About extends StatelessWidget {
                               ),
                               const SizedBox(height: 8),
                               Image.asset(
-                                'assets/images/anime.png',
-                                width: 130,
+                                'assets/images/CreditosDesenvolvimento.jpg',
+                                width: 350,
                               ),
                             ],
                           ),
-                          const SizedBox(width: 40), // espaçamento entre as imagens
+                          const SizedBox(height: 30), // espaçamento entre as imagens
                           // Direita: Apoio
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -174,8 +174,8 @@ class About extends StatelessWidget {
                               ),
                               const SizedBox(height: 8),
                               Image.asset(
-                                'assets/images/anime.png',
-                                width: 130,
+                                'assets/images/CreditosApoio.jpg',
+                                width: 350,
                               ),
                             ],
                           ),
